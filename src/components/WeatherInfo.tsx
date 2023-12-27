@@ -12,7 +12,7 @@ export default function WeatherInfo({ weather }: WeatherInfoProps) {
       <p className="text-6xl mb-3 font-semibold">{weather.temperature}°C</p>
       <p className="text-sm mb-6 text-slate-200">{weather.details}</p>
 
-      <hr className="mb-6 w-80 items-center border-slate-400" />
+      <hr className="mb-6 w-80 items-center border-slate-400 mx-auto" />
 
       <section>
         <p className="text-start mb-8 text-slate-100">Details</p>

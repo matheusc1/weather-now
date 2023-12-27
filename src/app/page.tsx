@@ -2,7 +2,7 @@
 import WeatherInfo from "@/components/WeatherInfo"
 import { Weather } from "@/types/Weather.interface"
 import { Search } from "lucide-react"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 export default function Home() {
   const [weather, setWeather] = useState<Weather | null>(null)
@@ -55,7 +55,7 @@ export default function Home() {
         </button>
       </div>
       
-      <section className="mt-7 text-slate-50 text-center">
+      <section className="mt-7 max-w-[90%] text-slate-50 text-center">
         {notFound ? (
           <p className="text-slate-200 text-xl mt-10 w-72">
             Dados não encontrados, verifique o nome da cidade e tente novamente
