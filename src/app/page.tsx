@@ -7,8 +7,7 @@ import { useState } from "react"
 export default function Home() {
   const [weather, setWeather] = useState<Weather | null>(null)
   const [search, setSearch] = useState('')
-
-  let notFound = false;
+  const [notFound, setNotFound] = useState(false)
 
   async function getWeatherInfo(cityName: String) {
     setWeather(null)
@@ -30,10 +29,9 @@ export default function Home() {
         pressure: data.main.pressure
       })
 
-      notFound = false;
+      setNotFound(false)
     } catch (err) {
-      console.error(err)
-      notFound = true;
+      setNotFound(true)
     }
   }
 
@@ -50,23 +48,21 @@ export default function Home() {
           placeholder="Insira o nome da cidade"
           type="text"
           className="border-0 text-slate-200 rounded-lg p-3 bg-slate-600 placeholder:text-slate-300 focus:outline-0" />
-        <button onClick={() => getWeatherInfo(search)} className="bg-slate-600 px-4 rounded-lg hover:bg-slate-500 transition-colors">
+        <button
+          onClick={() => getWeatherInfo(search)}
+          className="bg-slate-600 px-4 rounded-lg hover:bg-slate-500 transition-colors"
+        >
           <Search className="text-slate-200" />
         </button>
       </div>
       
       <section className="mt-7 max-w-[90%] text-slate-50 text-center">
-        {notFound ? (
-          <p className="text-slate-200 text-xl mt-10 w-72">
-            Dados não encontrados, verifique o nome da cidade e tente novamente
-          </p>
-        ) : weather ? (
-          <WeatherInfo key={weather.city} weather={weather} />
-        ) : ( 
-          <p className="text-slate-200 text-xl mt-10 w-72">
-            Pesquise por uma cidade para mais informações
-          </p> 
-        )}
+        {notFound 
+          ? <p className="text-slate-200 text-xl mt-10 w-72">Dados não encontrados, verifique o nome da cidade e tente novamente!</p>
+        : weather
+          ? <WeatherInfo key={weather.city} weather={weather} />
+          : <p className="text-slate-200 text-xl mt-10 w-72">Pesquise por uma cidade para mais informações.</p> 
+        }
       </section>
     </>
   )
