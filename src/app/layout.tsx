@@ -16,12 +16,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <div className='w-full h-screen bg-slate-950 flex items-center justify-center'>
-          <main className='flex flex-col items-center justify-start w-96 h-2/3 bg-slate-50 bg-opacity-10 rounded-2xl shadow-md'>
-            {children}
-          </main>
-        </div>
+      <body className={`${inter.className} w-full h-screen bg-slate-950 flex items-center justify-center`}>
+        <main className='flex flex-col items-center justify-start w-96 h-3/4 bg-slate-50 bg-opacity-10 rounded-2xl shadow-md'>
+          {children}
+        </main>
       </body>
     </html>
   )
