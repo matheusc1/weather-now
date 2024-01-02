@@ -1,5 +1,6 @@
 import { Weather } from "@/types/Weather.interface"
 import { Thermometer, Droplets, Wind, Gauge } from 'lucide-react'
+import Image from "next/image"
 
 interface WeatherInfoProps {
   weather: Weather
@@ -8,9 +9,20 @@ interface WeatherInfoProps {
 export default function WeatherInfo({ weather }: WeatherInfoProps) {
   return (
     <>
-      <p className="text-3xl font-light mb-6">{weather.city}, {weather.country}</p>
-      <p className="text-6xl mb-3 font-semibold">{weather.temperature}°C</p>
-      <p className="text-sm mb-6 text-slate-200">{weather.details}</p>
+      <section className="flex flex-col items-center justify-center">
+        <p className="text-3xl font-light mb-6">{weather.city}, {weather.country}</p>
+        <p className="text-6xl mb-3 font-semibold">{weather.temperature}°C</p>
+
+        <Image
+          src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`}
+          alt={weather.details}
+          width={120}
+          height={120}
+          className=""
+        />
+
+        <p className="text-sm mb-6 text-slate-200">{weather.details}</p>
+      </section>
 
       <hr className="mb-6 w-80 items-center border-slate-400 mx-auto" />
 

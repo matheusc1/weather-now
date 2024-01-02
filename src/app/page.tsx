@@ -22,6 +22,7 @@ export default function Home() {
         city: data.name,
         country: data.sys.country,
         temperature: parseFloat((data.main.temp - 273.15).toFixed(1)),
+        icon: data.weather[0].icon,
         details: data.weather[0].main,
         realFeel: parseFloat((data.main.feels_like - 273.15).toFixed(1)),
         humidity: data.main.humidity,
@@ -41,13 +42,13 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex gap-2 mt-4">
+      <div className="flex gap-2 mt-5">
         <input
           value={search}
           onChange={handleChange}
           placeholder="Insira o nome da cidade"
           type="text"
-          className="border-0 text-slate-200 rounded-lg p-3 bg-slate-600 placeholder:text-slate-300 focus:outline-0" />
+          className="border-0 w-64 text-slate-200 rounded-lg p-3 bg-slate-600 placeholder:text-slate-300 focus:outline-0" />
         <button
           onClick={() => getWeatherInfo(search)}
           className="bg-slate-600 px-4 rounded-lg hover:bg-slate-500 transition-colors"
@@ -58,7 +59,7 @@ export default function Home() {
       
       <section className="mt-7 max-w-[90%] text-slate-50 text-center">
         {notFound 
-          ? <p className="text-slate-200 text-xl mt-10 w-72">Dados não encontrados, verifique o nome da cidade e tente novamente!</p>
+          ? <p className="text-slate-200 text-xl mt-10 w-64">Dados não encontrados, verifique o nome da cidade e tente novamente!</p>
         : weather
           ? <WeatherInfo key={weather.city} weather={weather} />
           : <p className="text-slate-200 text-xl mt-10 w-72">Pesquise por uma cidade para mais informações.</p> 
