@@ -11,7 +11,7 @@ export default function WeatherInfo({ weather }: WeatherInfoProps) {
     <>
       <section className="flex flex-col items-center justify-center">
         <p className="text-3xl font-light mb-6">{weather.city}, {weather.country}</p>
-        <p className="text-6xl mb-3 font-semibold">{weather.temperature}°C</p>
+        <p className="text-5xl mb-3 font-semibold">{weather.temperature}°C</p>
 
         <Image
           src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`}

@@ -57,7 +57,7 @@ export default function Home() {
         </button>
       </div>
       
-      <section className="mt-7 max-w-[90%] text-slate-50 text-center">
+      <section className="mt-7 max-w-[90%] text-slate-50 text-center mb-5">
         {notFound 
           ? <p className="text-slate-200 text-xl mt-10 w-64">Dados não encontrados, verifique o nome da cidade e tente novamente!</p>
         : weather
