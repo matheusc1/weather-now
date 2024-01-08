@@ -45,3 +45,4 @@ npm run dev
 - [React](https://github.com/facebook/react)
 - [Next.js](https://nextjs.org/docs)
 - [TypeScript](https://github.com/microsoft/TypeScript)
+- [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss)
